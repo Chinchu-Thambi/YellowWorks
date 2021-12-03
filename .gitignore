@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/YellowWorks/v16/TestStore/0/000.testlog
+/.vs/YellowWorks/v16/TestStore/0
+/.vs
