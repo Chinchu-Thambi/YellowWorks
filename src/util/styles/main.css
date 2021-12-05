@@ -1,0 +1,17 @@
+/*! purgecss start ignore */
+/* Globals */
+@import './global.css';
+
+/* Variables */
+@import './variables.css';
+
+/* Components */
+@import './sortable.css';
+@import './modal.css';
+@import './form-elements.css';
+@import './dropdown.css';
+@import './datepicker.css';
+@import './slider.css';
+/*! purgecss end ignore */
+
+@import './yellow-tailwind.css';

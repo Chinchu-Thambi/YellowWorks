@@ -1,0 +1,364 @@
+{
+  "$id": "https://products.sandbox.beta.yellow.co.nz/schema/yol/ypbasic/v1/schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "description": "Yellow Online Listing Basic Profile",
+  "properties": {
+      "alias": {
+          "description": "Business Alias",
+          "items": {
+              "type": "string"
+          },
+          "maxItems": 99,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+      },
+      "businessProfile": {
+          "additionalProperties": false,
+          "description": "Business Profile",
+          "properties": {
+              "description": {
+                  "description": "Business description",
+                  "type": "string"
+              },
+              "foundingDate": {
+                  "description": "Year established",
+                  "format": "date",
+                  "type": "string"
+              },
+              "legalName": {
+                  "description": "The official registered name of the company",
+                  "type": "string"
+              },
+              "logo": {
+                  "additionalProperties": false,
+                  "description": "Business Logo",
+                  "properties": {
+                      "caption": {
+                          "description": "Logo caption/alternative text",
+                          "type": "string"
+                      },
+                      "contentUrl": {
+                          "description": "Logo URL",
+                          "format": "uri",
+                          "type": "string"
+                      },
+                      "height": {
+                          "description": "Logo image height",
+                          "enum": [
+                              "200 px"
+                          ],
+                          "type": "string"
+                      },
+                      "width": {
+                          "description": "Logo image width",
+                          "enum": [
+                              "200 px"
+                          ],
+                          "type": "string"
+                      }
+                  },
+                  "required": [
+                      "caption",
+                      "contentUrl",
+                      "height",
+                      "width"
+                  ],
+                  "type": "object"
+              },
+              "name": {
+                  "description": "The trading name of the company",
+                  "type": "string"
+              },
+              "url": {
+                  "description": "Web site URL",
+                  "format": "uri",
+                  "type": "string"
+              }
+          },
+          "type": "object"
+      },
+      "categories": {
+          "additionalItems": {
+              "properties": {
+                  "category": {
+                      "$ref": "https://products.sandbox.beta.yellow.co.nz/schema/categories/v1/schema.json#/definitions/category"
+                  }
+              },
+              "type": "object"
+          },
+          "description": "Business categories",
+          "items": [
+              {
+                  "properties": {
+                    "category": {
+                        "$ref": "https://products.sandbox.beta.yellow.co.nz/schema/categories/v1/schema.json#/definitions/category"
+                    },
+                    "sponsorship": {
+                        "type": "string",
+                        "const": "BRONZE"
+                    },
+                    "region": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string"},
+                          "name": {"type": "string"}
+                        }
+                    }
+                  }
+              }
+          ],
+          "maxItems": 99,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+      },
+      "location": {
+          "additionalProperties": false,
+          "anyOf": [
+              {
+                  "required": [
+                      "address",
+                      "telephone"
+                  ]
+              },
+              {
+                  "required": [
+                      "address",
+                      "email"
+                  ]
+              },
+              {
+                  "required": [
+                      "areaServed",
+                      "telephone"
+                  ]
+              },
+              {
+                  "required": [
+                      "areaServed",
+                      "email"
+                  ]
+              }
+          ],
+          "description": "Location of the business",
+          "properties": {
+              "address": {
+                  "description": "Physical address of the business",
+                  "properties": {
+                      "addressCountry": {
+                          "description": "Country",
+                          "type": "string"
+                      },
+                      "addressLocality": {
+                          "description": "Town or city",
+                          "type": "string"
+                      },
+                      "postalCode": {
+                          "description": "Post code",
+                          "type": "string"
+                      },
+                      "streetAddress": {
+                          "items": {
+                              "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                      }
+                  },
+                  "required": [
+                      "streetAddress",
+                      "addressLocality",
+                      "addressCountry",
+                      "postalCode"
+                  ],
+                  "type": "object"
+              },
+              "areaServed": {
+                  "$ref": "https://products.sandbox.beta.yellow.co.nz/schema/areas/v1/schema.json#/definitions/servicingArea"
+              },
+              "contactPoint": {
+                  "description": "Additional contact points",
+                  "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                          "contactType": {
+                              "enum": [
+                                  "Phone"
+                              ],
+                              "type": "string"
+                          },
+                          "telephone": {
+                              "pattern": "^0[3,4,6,7,9][0-9]{7}$|^02[0-2,7-9][0-9]{6,8}$|^0(508|800)[0-9]{6,8}$",
+                              "type": "string"
+                          }
+                      },
+                      "required": [
+                          "telephone",
+                          "contactType"
+                      ],
+                      "type": "object"
+                  },
+                  "maxItems": 5,
+                  "type": "array",
+                  "uniqueItems": true
+              },
+              "email": {
+                  "description": "Email address",
+                  "format": "email",
+                  "type": "string"
+              },
+              "faxNumber": {
+                  "description": "Fax Number",
+                  "pattern": "^0[3,4,6,7,9][0-9]{7}$",
+                  "type": "string"
+              },
+              "hasMap": {
+                  "default": true,
+                  "description": "Flag to enable map",
+                  "type": "boolean"
+              },
+              "id": {
+                  "description": "Location ID",
+                  "type": "string"
+              },
+              "mobileNumber": {
+                  "description": "Mobile Number",
+                  "pattern": "^02[0-2,7-9][0-9]{6,8}$",
+                  "type": "string"
+              },
+              "openingHoursSpecification": {
+                  "items": {
+                      "properties": {
+                          "closes": {
+                              "pattern": "^[0-9]{2}:[0-9]{2}$",
+                              "type": "string"
+                          },
+                          "dayOfWeek": {
+                              "oneOf": [
+                                  {
+                                      "enum": [
+                                          "Monday",
+                                          "Tuesday",
+                                          "Wednesday",
+                                          "Thursday",
+                                          "Friday",
+                                          "Saturday",
+                                          "Sunday"
+                                      ],
+                                      "type": "string"
+                                  },
+                                  {
+                                      "items": {
+                                          "enum": [
+                                              "Monday",
+                                              "Tuesday",
+                                              "Wednesday",
+                                              "Thursday",
+                                              "Friday",
+                                              "Saturday",
+                                              "Sunday"
+                                          ],
+                                          "type": "string"
+                                      },
+                                      "type": "array"
+                                  }
+                              ]
+                          },
+                          "opens": {
+                              "pattern": "^[0-9]{2}:[0-9]{2}$",
+                              "type": "string"
+                          },
+                          "validFrom": {
+                              "format": "date",
+                              "type": "string"
+                          },
+                          "validThrough": {
+                              "format": "date",
+                              "type": "string"
+                          }
+                      },
+                      "required": [
+                          "opens",
+                          "closes"
+                      ],
+                      "type": "object"
+                  },
+                  "type": "array",
+                  "uniqueItems": true
+              },
+              "postalAddress": {
+                  "description": "Postal address of the business",
+                  "properties": {
+                      "addressCountry": {
+                          "description": "Country",
+                          "type": "string"
+                      },
+                      "addressLocality": {
+                          "description": "Town or city",
+                          "type": "string"
+                      },
+                      "postalCode": {
+                          "description": "Post code",
+                          "type": "string"
+                      },
+                      "streetAddress": {
+                          "items": {
+                              "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                      }
+                  },
+                  "required": [
+                      "streetAddress",
+                      "addressLocality",
+                      "addressCountry",
+                      "postalCode"
+                  ],
+                  "type": "object"
+              },
+              "telephone": {
+                  "description": "Telephone Number",
+                  "pattern": "^0[3,4,6,7,9][0-9]{7}$|^02[0-2,7-9][0-9]{6,8}$|^0(508|800)[0-9]{6,8}$",
+                  "type": "string"
+              },
+              "tollFreeNumber": {
+                  "description": "Mobile Number",
+                  "pattern": "^0(508|800)[0-9]{6,8}$",
+                  "type": "string"
+              }
+          },
+          "required": [
+              "hasMap"
+          ],
+          "type": "object"
+      },
+      "paymentAccepted": {
+          "description": "Payment methods accepted",
+          "items": {
+              "enum": [
+                  "MasterCard",
+                  "VISA",
+                  "AmericanExpress",
+                  "DinersClub",
+                  "CheckInAdvance",
+                  "DirectDebit",
+                  "PayPal"
+              ],
+              "type": "string"
+          },
+          "type": "array"
+      }
+  },
+  "required": [
+      "businessProfile",
+      "location",
+      "categories"
+  ],
+  "sku": "YPBASIC",
+  "title": "YOL YPBASIC Product Schema",
+  "type": "object",
+  "version": 1
+}

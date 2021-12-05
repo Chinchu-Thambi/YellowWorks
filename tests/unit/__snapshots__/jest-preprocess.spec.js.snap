@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`jest preprocess should not change by accident 1`] = `
+Object {
+  "canInstrument": true,
+  "getCacheKey": [Function],
+  "process": [Function],
+}
+`;

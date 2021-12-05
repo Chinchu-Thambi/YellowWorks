@@ -1,0 +1,63 @@
+Transform: AWS::Serverless-2016-10-31
+Description: Pipeline Utils CodeBuild Webhook Integration Tests
+
+Parameters:
+  CodeBuildWebhookFunctionArn:
+    Type: String
+    Description: Function ARN of codebuild webhook custom resource under test
+  RepositoryName:
+    Type: String
+    Description: Name of Github repository
+
+Resources:
+  BuildProjectRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Action:
+              - sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: codebuild.amazonaws.com
+      Policies:
+        - PolicyName: CodebuildPermissions
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: logs
+                Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource:
+                  - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/codebuild/*
+  BuildProject:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      BadgeEnabled: false
+      Source:
+        Type: GITHUB
+        Location: !Sub https://github.com/${RepositoryName}.git
+        ReportBuildStatus: True
+        InsecureSsl: False
+      Artifacts:
+        Type: NO_ARTIFACTS
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: aws/codebuild/standard:2.0
+        ImagePullCredentialsType: CODEBUILD
+        Type: LINUX_CONTAINER
+      ServiceRole: !GetAtt BuildProjectRole.Arn
+  Webhook:
+    Type: AWS::CloudFormation::CustomResource
+    Properties:
+      ServiceToken: !Ref CodeBuildWebhookFunctionArn
+      ProjectName: !Ref BuildProject
+
+Outputs:
+  BuildProjectArn:
+    Value: !GetAtt BuildProject.Arn 
+  

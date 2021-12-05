@@ -1,0 +1,250 @@
+{
+  "colors": {
+    "base": {
+      "100": "#FFFFFF",
+      "200": "#F4F4F4",
+      "300": "#F2F2F2",
+      "400": "#E7E7E7"
+    },
+    "brand": {
+      "100": "#FFFDF4",
+      "200": "#FEF9D3",
+      "300": "#FDF3A7",
+      "400": "#FDED7A",
+      "500": "#FCE74E",
+      "600": "#FBE122"
+    },
+    "contrast": {
+      "100": "#F3F5F8",
+      "200": "#D2D4DA",
+      "300": "#A5AAB4",
+      "400": "#797F8F",
+      "500": "#4C5569",
+      "600": "#1F2A44"
+    },
+    "crimson": {
+      "100": "#FDF5F5",
+      "200": "#F7D9D8",
+      "300": "#EFB2B1",
+      "400": "#E88C8B",
+      "500": "#E06564",
+      "600": "#D83F3D"
+    },
+    "fern": {
+      "100": "#F7FBF6",
+      "200": "#E0EFDD",
+      "300": "#C1DFBB",
+      "400": "#A2D09A",
+      "500": "#83C078",
+      "600": "#64B056"
+    },
+    "uplift": {
+      "100": "#FEF8F6",
+      "200": "#FBE2DA",
+      "300": "#F8C6B5",
+      "400": "#F4A991",
+      "500": "#F18D6C",
+      "600": "#ED7047"
+    },
+    "pacific": {
+      "100": "#F7FBFE",
+      "200": "#E1F2FA",
+      "300": "#C4E5F5",
+      "400": "#A6D8F1",
+      "500": "#89CBEC",
+      "600": "#6BBEE7"
+    },
+    "magnificent": {
+      "100": "#F7F5FA",
+      "200": "#E2D8EA",
+      "300": "#C5B0D5",
+      "400": "#A789C0",
+      "500": "#8A61AB",
+      "600": "#6D3A96"
+    },
+    "violet": {
+      "100": "#F7F7FA",
+      "200": "#DFE1EC",
+      "300": "#C0C2D8",
+      "400": "#A0A4C5",
+      "500": "#8185B1",
+      "600": "#61679E"
+    }
+  },
+  "opacity": {
+    "95": "0.95"
+  },
+  "spacing": {
+    "px": "1px",
+    "0": "0rem",
+    "1": "0.3125rem",
+    "2": "0.625rem",
+    "2.5": "1rem",
+    "3": "1.25rem",
+    "4": "2rem",
+    "5": "3rem",
+    "6": "4rem",
+    "7": "5rem",
+    "8": "6rem",
+    "9": "7rem",
+    "10": "8rem",
+    "11": "10rem",
+    "12": "12rem",
+    "13": "14rem",
+    "14": "16rem",
+    "15": "18rem",
+    "16": "20rem",
+    "17": "24rem",
+    "18": "32rem",
+    "19": "36rem",
+    "20": "48rem"
+  },
+  "screens": {
+    "sm": "36em",
+    "md": "48em",
+    "lg": "62em",
+    "xl": "75em",
+    "2xl": "90em"
+  },
+  "borderRadius": {
+    "none": "0",
+    "sm": "0.125rem",
+    "default": "0.15625rem",
+    "md": "0.3125rem",
+    "lg": "0.625rem",
+    "xl": "0.75rem",
+    "2xl": "1rem",
+    "3xl": "1.5rem",
+    "full": "9999px"
+  },
+  "boxShadow": {
+    "xs": "0 0 0 1px rgb(31, 42, 68, 0.05)",
+    "sm": "0 1px 2px 0 rgb(31, 42, 68, 0.05)",
+    "default": "0 1px 3px 0 rgb(31, 42, 68, 0.1), 0 1px 2px 0 rgb(31, 42, 68, 0.06)",
+    "md": "0 4px 6px -1px rgb(31, 42, 68, 0.1), 0 2px 4px -1px rgb(31, 42, 68, 0.06)",
+    "lg": "0 10px 15px -3px rgb(31, 42, 68, 0.1), 0 4px 6px -2px rgb(31, 42, 68, 0.05)",
+    "xl": "0 20px 25px -5px rgb(31, 42, 68, 0.1), 0 10px 10px -5px rgb(31, 42, 68, 0.04)",
+    "2xl": "0 25px 50px -12px rgb(31, 42, 68, 0.25)",
+    "inner": "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
+    "outline": "0 0 0 3px rgba(66, 153, 225, 0.5)",
+    "none": "none"
+  },
+  "fontFamily": {
+    "title": [
+      "Montserrat",
+      "Lato",
+      "system-ui",
+      "-apple-system",
+      "BlinkMacSystemFont",
+      "Segoe UI",
+      "Roboto",
+      "Helvetica Neue",
+      "Arial",
+      "Noto Sans",
+      "sans-serif"
+    ],
+    "sans": [
+      "Lato",
+      "system-ui",
+      "-apple-system",
+      "BlinkMacSystemFont",
+      "Segoe UI",
+      "Roboto",
+      "Helvetica Neue",
+      "Arial",
+      "Noto Sans",
+      "sans-serif"
+    ],
+    "serif": [
+      "Times",
+      "serif"
+    ],
+    "mono": [
+      "monospace"
+    ]
+  },
+  "fontWeight": {
+    "normal": "400",
+    "bold": "700"
+  },
+  "fontSize": {
+    "xs": [
+      "0.75rem",
+      {
+        "lineHeight": "1rem"
+      }
+    ],
+    "sm": [
+      "0.875rem",
+      {
+        "lineHeight": "1.25rem"
+      }
+    ],
+    "base": [
+      "1rem",
+      {
+        "lineHeight": "1.5rem"
+      }
+    ],
+    "lg": [
+      "1.125rem",
+      {
+        "lineHeight": "1.75rem"
+      }
+    ],
+    "xl": [
+      "1.25rem",
+      {
+        "lineHeight": "1.75rem"
+      }
+    ],
+    "2xl": [
+      "1.5rem",
+      {
+        "lineHeight": "2rem"
+      }
+    ],
+    "3xl": [
+      "1.875rem",
+      {
+        "lineHeight": "2.25rem"
+      }
+    ],
+    "4xl": [
+      "2.25rem",
+      {
+        "lineHeight": "2.5rem"
+      }
+    ],
+    "5xl": [
+      "3rem",
+      {
+        "lineHeight": "1"
+      }
+    ],
+    "6xl": [
+      "3.75rem",
+      {
+        "lineHeight": "1"
+      }
+    ],
+    "7xl": [
+      "4.5rem",
+      {
+        "lineHeight": "1"
+      }
+    ],
+    "8xl": [
+      "6rem",
+      {
+        "lineHeight": "1"
+      }
+    ],
+    "9xl": [
+      "8rem",
+      {
+        "lineHeight": "1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,169 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable import/prefer-default-export */
+import React from 'react';
+import styled from 'styled-components';
+import Select from 'react-select';
+
+export const FormGroup = styled.fieldset.attrs({
+  className: 'flex flex-col space-y-3 border-none p-0 w-full xl:w-2/3',
+})``;
+
+const generateInputCssClasses = (prefilled) => (prefilled ? ' bg-brand-200 border-brand-600' : '');
+
+// TODO should i add this back??
+// const inputBorder = () => {
+//   if (prefix && !suffix) {
+//     return 'border-t-0 border-b-0 border-r-0';
+//   }
+//   if (!prefix && suffix) {
+//     return 'border-t-0 border-b-0 border-l-0';
+//   }
+//   return 'border-t-0 border-b-0';
+// };
+export const Input = React.forwardRef(
+  ({
+    id, type = 'text', label, prefix, suffix, prefilled, errorMessage, placeholder, disabled, ...rest
+  }, ref) => (
+    <label htmlFor={id}>
+      {label && <div className="mb-1">{label}</div>}
+      <div
+        className={`form-input p-0 flex items-stretch overflow-hidden rounded-md ${
+          errorMessage ? 'border border-crimson-400' : ''
+        }`}
+      >
+        {prefix && (
+        <div className="text-sm sm:text-base px-2 sm:px-3 bg-contrast-100 text-contrast-400 flex items-center justify-center min-w-6">
+          {prefix}
+        </div>
+        )}
+        <input
+          ref={ref}
+          type={type}
+          className={`form-input border-none rounded-none w-full ${generateInputCssClasses(prefilled)}`}
+          id={id}
+          disabled={disabled}
+          placeholder={placeholder}
+          aria-label={label || placeholder || 'text input'}
+          {...rest}
+        />
+        {suffix && (
+        <div className="text-sm sm:text-base px-2 sm:px-3 bg-contrast-100 text-contrast-400 flex items-center justify-center">
+          {suffix}
+        </div>
+        )}
+      </div>
+      {errorMessage && (
+      <div className="mt-1 text-xs sm:text-base text-crimson-600 p-2 bg-crimson-100 rounded-md">{errorMessage}</div>
+      )}
+    </label>
+  ),
+);
+
+/**
+ * @type {(label: string, prefilled: boolean, maxLength?: number, value?: string, rest?: any) => JSX.Element}
+ */
+export const TextArea = React.forwardRef(({
+  id, label, prefilled, errorMessage, maxLength, value, ...rest
+}, ref) => (
+  <label htmlFor={id}>
+    {label && <div className="mb-1">{label}</div>}
+    <textarea
+      id={id}
+      ref={ref}
+      value={value}
+      className={`form-textarea w-full min-h-10 ${generateInputCssClasses(prefilled)} ${
+        errorMessage && 'border border-crimson-400'
+      }`}
+      aria-label={label || 'text input for longer text'}
+      {...rest}
+    />
+    {maxLength && (
+    <div className="text-xs text-right">
+      { !value
+        ? `up to ${maxLength} characters`
+        : `${value?.length} / ${maxLength}`}
+    </div>
+    )}
+    {errorMessage && <div className="mt-1 text-crimson-600 p-2 bg-crimson-100 rounded-md">{errorMessage}</div>}
+  </label>
+));
+
+/**
+ * @type {(label: string, rest?: any) => JSX.Element}
+ */
+export const Checkbox = ({ id, label, ...rest }) => (
+  <label htmlFor={id} className="flex items-center">
+    <input type="checkbox" id={id} className="form-checkbox" aria-label={label || 'checkbox input'} {...rest} />
+    {label && <span className="ml-2">{label}</span>}
+  </label>
+);
+
+/**
+ * @type {(label: string, rest?: any) => JSX.Element}
+ */
+export const Radio = ({ id, label, ...rest }) => (
+  <label htmlFor={id} className="flex items-center">
+    <input type="radio" id={id} className="form-radio" aria-label={label || 'radio selection input'} {...rest} />
+    {label && <span className="ml-2">{label}</span>}
+  </label>
+);
+
+/**
+ * @type {(label: string, children: any, rest?: any) => JSX.Element}
+ */
+export const FormSubGroup = ({ id, label, children }) => (
+  <label htmlFor={id}>
+    {label && <div className="mb-1">{label}</div>}
+    <div id={id} className="flex items-center space-x-4">
+      {children}
+    </div>
+  </label>
+);
+
+export const Dropdown = styled(Select).attrs({
+  className: 'w-full sm:w-2/3',
+})``;
+
+
+export const CustomisableInput = React.forwardRef(
+  ({
+    id, type = 'text', label, prefix, suffixOptions, prefilled, errorMessage, placeholder, ...rest
+  }, ref) => (
+    <label htmlFor={id}>
+      {label && <div className="mb-1">{label}</div>}
+      <div
+        className={`form-input p-0 flex items-stretch overflow-hidden rounded-md ${
+          errorMessage ? 'border border-crimson-400' : ''
+        }`}
+      >
+        {prefix && (
+        <div className="text-sm sm:text-base px-2 sm:px-3 bg-contrast-100 text-contrast-400 flex items-center justify-center min-w-6">
+          {prefix}
+        </div>
+        )}
+        <input
+          ref={ref}
+          type={type}
+          className={`form-input border-none rounded-none w-full ${generateInputCssClasses(prefilled)}`}
+          id={id}
+          disabled={prefilled}
+          placeholder={placeholder}
+          aria-label={label || placeholder || 'text input'}
+          {...rest}
+        />
+        {suffixOptions && (
+        <div className="text-sm sm:text-base px-2 sm:px-3 bg-contrast-100 text-contrast-400 flex items-center justify-center">
+          <Dropdown
+            ref={ref}
+            id={id}
+            options={suffixOptions}
+          />
+        </div>
+        )}
+      </div>
+      {errorMessage && (
+      <div className="mt-1 text-xs sm:text-base text-crimson-600 p-2 bg-crimson-100 rounded-md">{errorMessage}</div>
+      )}
+    </label>
+  ),
+);

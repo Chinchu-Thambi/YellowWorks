@@ -1,0 +1,81 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+html body {
+  font-family: 'Lato', sans-serif;
+  color: #1f2a44;
+  line-height: 1.25;
+  padding-top: 50px;
+}
+
+@media (min-width: 48em) {
+  html body {
+    padding-top: 0;
+  }
+}
+
+a {
+  color: #6bbee7;
+}
+
+b {
+  @apply font-bold;
+}
+
+h1,
+h1 *,
+h2,
+h2 *,
+h3,
+h3 *,
+h4,
+h4 * {
+  @apply font-title;
+  @apply font-bold;
+}
+
+/* TODO stuff below to finalize */
+
+/* Overriding some bits of the @tailwind/custom-forms library */
+.form-input,
+.form-textarea {
+  border-style: solid;
+  @apply text-contrast-600;
+}
+
+.select__input input {
+  @apply border-none;
+}
+
+button {
+  @apply border-none p-0;
+}
+
+input.form-checkbox[type='checkbox'],
+input.form-radio[type='radio'] {
+  border: 1px solid #797f8f;
+  @apply text-contrast-500;
+}
+
+input.form-checkbox[type='checkbox']:checked,
+input.form-radio[type='radio']:checked {
+  border: 1px solid #4c5569;
+}
+
+label > div,
+label > span {
+  @apply text-contrast-400;
+}

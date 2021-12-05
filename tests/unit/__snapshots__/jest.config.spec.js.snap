@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test suite should not change by accident 1`] = `
+Object {
+  "collectCoverageFrom": Array [
+    "**/*.{js,jsx}",
+    "!./contentful/**",
+    "!**/coverage/**",
+    "!**/node_modules/**",
+    "!**/public/**",
+    "!./tests/**",
+    "!**/vendor/**",
+  ],
+  "coveragePathIgnorePatterns": Array [
+    "node_modules",
+    ".stories.js",
+    ".spec.js",
+  ],
+  "globals": Object {
+    "__PATH_PREFIX__": "",
+  },
+  "moduleNameMapper": Object {
+    ".+\\\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
+    ".+\\\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/__mocks__/file-mock.js",
+  },
+  "setupFiles": Array [
+    "<rootDir>/jest-loadershim.js",
+    "./tests/__mocks__/client.js",
+  ],
+  "snapshotSerializers": Array [
+    "enzyme-to-json/serializer",
+  ],
+  "testEnvironment": "jsdom",
+  "testPathIgnorePatterns": Array [
+    "node_modules",
+    ".cache",
+    "cypress",
+  ],
+  "transform": Object {
+    "^.+\\\\.jsx?$": "<rootDir>/jest-preprocess.js",
+  },
+  "transformIgnorePatterns": Array [
+    "node_modules/(?!(gatsby)/)",
+  ],
+  "watchPathIgnorePatterns": Array [
+    "/node_modules/",
+    "/public/",
+    "/cypress/",
+  ],
+}
+`;

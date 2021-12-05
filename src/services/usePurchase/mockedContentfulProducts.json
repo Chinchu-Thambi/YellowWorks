@@ -1,0 +1,22 @@
+{
+  "allContentfulProductOption": {
+    "nodes": [
+      {
+        "cartIcon": {
+          "file": {
+            "url": "//images.ctfassets.net/h7ajxcwj2nu7/6cFMfuNUziTrOS8Rjfm7wX/520fba293136b69f59f463a5668e4ac5/yellow-profile-icon.png",
+            "details": {
+              "image": {
+                "height": 180,
+                "width": 190
+              }
+            }
+          }
+      },
+      "name": "Premium Profile",
+      "recurringPayment": true,
+      "sku": "YPPREMIUM"
+      }
+    ]
+  }
+}

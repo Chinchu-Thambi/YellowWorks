@@ -1,0 +1,39 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - echo ==========  install phase...  ====================
+      - python --version
+      - pip install --upgrade pip
+      - pip install pillow
+      - echo # Install Robot Framework and SeleniumLibrary robotframework-requests
+      - pip install robotframework
+      - pip install robotframework-seleniumlibrary==3.3.1
+      - pip install robotframework-requests==0.5.0
+      - pip install urllib3==1.24.1
+      - pip install stripe==2.33.0
+      - pip install jsonpath
+      - pip list
+  pre_build:
+    commands:
+      - echo ==========  pre-build phase...  ====================
+  build:
+    commands:
+      - echo ==========  build phase...  ====================
+      - echo Build started on `date`
+      #- echo # Test execution: use -d -i options
+      #- cat tests/acceptance/buy_journey/products_sitedata.py
+      - robot --outputdir reports --include codebuild_ready tests/acceptance/buy_journey/yol_products_tests.robot tests/acceptance/registration_login/registration_tests.robot tests/acceptance/registration_login/login_tests.robot tests/acceptance/registration_login/forgot_password_tests.robot tests/acceptance/git_result_handling.robot
+  post_build:
+    commands:
+      - echo ==========  post-build phase...  ====================
+      - echo Build completed on `date`
+      - pwd
+      - ls
+artifacts:
+  files:
+    - reports/log.html
+    - reports/output.xml
+    - reports/report.html
+    - reports/selenium-screenshot*.png

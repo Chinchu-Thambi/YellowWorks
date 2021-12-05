@@ -1,0 +1,178 @@
+[
+  {
+    "id": 52907,
+    "name": "Direct Debit"
+  },
+  {
+    "id": 52908,
+    "name": "Cash"
+  },
+  {
+    "id": 52909,
+    "name": "Travellers Cheques"
+  },
+  {
+    "id": 52910,
+    "name": "Money Orders"
+  },
+  {
+    "id": 52911,
+    "name": "EFTPOS"
+  },
+  {
+    "id": 52912,
+    "name": "Gift Vouchers"
+  },
+  {
+    "id": 52913,
+    "name": "Diner's Club"
+  },
+  {
+    "id": 52914,
+    "name": "VISA"
+  },
+  {
+    "id": 52915,
+    "name": "MasterCard"
+  },
+  {
+    "id": 52916,
+    "name": "Financing Available"
+  },
+  {
+    "id": 52917,
+    "name": "Direct Credit (internet banking, phone banking)"
+  },
+  {
+    "id": 52918,
+    "name": "Personal Cheques"
+  },
+  {
+    "id": 52919,
+    "name": "Credit Terms Available"
+  },
+  {
+    "id": 52920,
+    "name": "American Express"
+  },
+  {
+    "id": 14417746,
+    "name": "PayPal"
+  },
+  {
+    "id": 14675154,
+    "name": "Bank Cheque"
+  },
+  {
+    "id": 14675156,
+    "name": "Hire Purchase"
+  },
+  {
+    "id": 14675181,
+    "name": "Bankcard"
+  },
+  {
+    "id": 14675198,
+    "name": "Farmers Card"
+  },
+  {
+    "id": 14675238,
+    "name": "Layby"
+  },
+  {
+    "id": 14675240,
+    "name": "Q Card"
+  },
+  {
+    "id": 18085418,
+    "name": "JCB"
+  },
+  {
+    "id": 18085419,
+    "name": "Bank Transfer"
+  },
+  {
+    "id": 18085420,
+    "name": "Wire Transfer"
+  },
+  {
+    "id": 18085421,
+    "name": "Bitcoin"
+  },
+  {
+    "id": 18085422,
+    "name": "ECOCard"
+  },
+  {
+    "id": 18086029,
+    "name": "Money Transfer"
+  },
+  {
+    "id": 18086030,
+    "name": "AlertPay"
+  },
+  {
+    "id": 18086031,
+    "name": "Amazon Payments"
+  },
+  {
+    "id": 18086032,
+    "name": "ClickandBuy"
+  },
+  {
+    "id": 18086033,
+    "name": "NETELLER"
+  },
+  {
+    "id": 18086034,
+    "name": "VISA Electron"
+  },
+  {
+    "id": 18086432,
+    "name": "Discover Card"
+  },
+  {
+    "id": 18086437,
+    "name": "Interac"
+  },
+  {
+    "id": 18086979,
+    "name": "Maestro"
+  },
+  {
+    "id": 18086980,
+    "name": "BPay"
+  },
+  {
+    "id": 18086981,
+    "name": "Bill Me Later"
+  },
+  {
+    "id": 18086982,
+    "name": "Google Wallet"
+  },
+  {
+    "id": 18086983,
+    "name": "Moneybookers"
+  },
+  {
+    "id": 18086984,
+    "name": "KBC/CBC"
+  },
+  {
+    "id": 18086985,
+    "name": "Afterpay"
+  },
+  {
+    "id": 18086986,
+    "name": "Zip"
+  },
+  {
+    "id": 18086987,
+    "name": "Oxipay"
+  },
+  {
+    "id": 18086988,
+    "name": "Laybuy"
+  }
+]

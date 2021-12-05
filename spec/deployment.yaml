@@ -1,0 +1,46 @@
+version: 0.2
+
+env:
+  parameter-store:
+    SANDBOX_CONFIG: /aws/reference/secretsmanager/customer-portal/sandbox
+    PROD_CONFIG: /aws/reference/secretsmanager/customer-portal/production
+    SECRET: /aws/reference/secretsmanager/pipeline-platform/secret
+  exported-variables:
+    # Exporting variables that will be used by the "publish-version" lambda function
+    - PULL_REQUEST
+
+phases:
+  pre_build:
+    commands:
+      - export GITHUB_TOKEN=$(echo "$SECRET" | jq -r .GITHUB_TOKEN)
+      - export GITHUB_USER=yellownz-cloudops
+      - echo "$SANDBOX_CONFIG" | jq 'to_entries[] | .key + "=" + .value' -r > .env.sandbox
+      - echo "$PROD_CONFIG" | jq 'to_entries[] | .key + "=" + .value' -r > .env.production
+      - export PARENT_GIT_COMMIT=$(curl -u $GITHUB_USER:$GITHUB_TOKEN https://api.github.com/repos/yellownz/customer-portal/git/commits/$CODEBUILD_RESOLVED_SOURCE_VERSION | jq -r .parents[1].sha)
+      
+  build:
+    commands:
+      - aws s3 cp s3://yellownz-build-ap-southeast-2-code-artifacts/customer-portal/acceptance/$PARENT_GIT_COMMIT.zip .
+      - unzip -o $PARENT_GIT_COMMIT.zip
+      - tar -xf node.tar
+      # TEMPORARY ASSUME FIX
+      # Assuming CodeBuild Sandbox Role
+      - export AWS_DEFAULT_REGION="ap-southeast-2"
+      - temp_role=$(aws sts assume-role --role-arn arn:aws:iam::327053179056:role/codebuild --role-session-name "build-tmp-session" --profile yellownz-sandbox)
+      - export AWS_ACCESS_KEY_ID=$(echo $temp_role | jq -r .Credentials.AccessKeyId)
+      - export AWS_SECRET_ACCESS_KEY=$(echo $temp_role | jq -r .Credentials.SecretAccessKey)
+      - export AWS_SESSION_TOKEN=$(echo $temp_role | jq -r .Credentials.SessionToken)
+      - make build/sandbox
+      - make publish/sandbox
+      # Assuming CodeBuild Production Role
+      - temp_role=$(aws sts assume-role --role-arn arn:aws:iam::800206584181:role/codebuild --role-session-name "build-tmp-session" --profile yellownz-production)
+      - export AWS_ACCESS_KEY_ID=$(echo $temp_role | jq -r .Credentials.AccessKeyId)
+      - export AWS_SECRET_ACCESS_KEY=$(echo $temp_role | jq -r .Credentials.SecretAccessKey)
+      - export AWS_SESSION_TOKEN=$(echo $temp_role | jq -r .Credentials.SessionToken)
+      - make build/production
+      - make publish/production
+      # - make sync
+
+  post_build:
+    commands:
+      - source ./EXPORTED_VARS.txt

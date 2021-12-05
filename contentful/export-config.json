@@ -1,0 +1,7 @@
+{
+  "skipRoles": true,
+  "skipWebhooks": true,
+  "exportDir": "./contentful/",
+  "contentFile": "structure.json",
+  "useVerboseRenderer": true
+}

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ManageProfile does not throw with incomplete data 1`] = `
+Array [
+  Array [
+    "Warning: Failed prop type: The prop \`subscriptionId\` is marked as required in \`ManageProfile\`, but its value is \`undefined\`.
+    in ManageProfile",
+  ],
+]
+`;
+
+exports[`ManageProfile implements phone number editing functionality 1`] = `
+Object {
+  "data": Object {
+    "contactPoint": Array [],
+    "mobileNumber": Object {},
+    "telephone": Object {
+      "areaCode": "9",
+      "countryCode": "64",
+      "number": "1111111",
+    },
+    "tollFreeNumber": Object {},
+  },
+  "path": Array [
+    Array [
+      "location",
+    ],
+  ],
+}
+`;

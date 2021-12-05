@@ -1,0 +1,18 @@
+
+# Insights page----------------------------------------------------------------------------------------------
+insights_button                                               = "xpath=//a[contains(text(),'Insights')]"
+insights_iframe                                               = "xpath=//iframe[contains(@src,'https://app.mode.com/yellownz/reports')]"
+insights_report_iframe                                        = "xpath=//iframe[@name='mode-embed-frame']"
+date_picker                                                   = "xpath=//div[@class='react-datepicker__input-container']"
+date_picker_november                                          = "xpath=//div[contains(text(),'Nov')]"
+insights_report_div                                           = "xpath=//div[@class='gnlro9-0 bzODDp']"
+insights_appearances_count                                    = "xpath=//div[@class='col-md-4'][1]//span[@class='fb-content']"
+appearance_november                                           = "359"
+insights_visits_count                                         = "xpath=//div[@class='col-md-4'][2]//span[@class='fb-content']"
+visits_november                                               = "24"
+insights_interactions_count                                   = "xpath=//div[@class='col-md-4'][3]//span[@class='fb-content']"
+interactions_november                                         = "25"
+insights_total_bus_review                                     = "xpath=//div[@class='mode-grid container']//div[7]//span[@class='fb-content'][contains(text(),176)]"
+bus_review_november                                           = "176"
+insights_avg_rating                                           = "xpath=//div[@class='mode-grid container']//div[7]//span[@class='fb-content'][contains(text(),4.4)]"
+avg_rating_november                                           = "4.4"

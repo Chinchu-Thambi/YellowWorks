@@ -1,0 +1,254 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders the correct list of links 1`] = `
+Array [
+  Object {
+    "href": "/auckland/trades-services?pop_category=true",
+    "html": "Trades & services",
+  },
+  Object {
+    "href": "/auckland/plumbers?pop_category=true",
+    "html": "Plumbers",
+  },
+  Object {
+    "href": "/auckland/builders?pop_category=true",
+    "html": "Builders",
+  },
+  Object {
+    "href": "/auckland/electricians?pop_category=true",
+    "html": "Electricians",
+  },
+  Object {
+    "href": "/auckland/automotive?pop_category=true",
+    "html": "Automotive",
+  },
+  Object {
+    "href": "/auckland/automotive?pop_category=true",
+    "html": "Repairs",
+  },
+  Object {
+    "href": "/auckland/tyres?pop_category=true",
+    "html": "Tyres",
+  },
+  Object {
+    "href": "/auckland/dismantlers?pop_category=true",
+    "html": "Dismantlers",
+  },
+  Object {
+    "href": "/auckland/health-beauty?pop_category=true",
+    "html": "Health & beauty",
+  },
+  Object {
+    "href": "/auckland/hairdressers?pop_category=true",
+    "html": "Hairdressers",
+  },
+  Object {
+    "href": "/auckland/beauty-therapy?pop_category=true",
+    "html": "Beauty therapy",
+  },
+  Object {
+    "href": "/auckland/health-fitness-centres?pop_category=true",
+    "html": "Health & fitness centres",
+  },
+  Object {
+    "href": "/auckland/medical?pop_category=true",
+    "html": "Medical",
+  },
+  Object {
+    "href": "/auckland/dentists?pop_category=true",
+    "html": "Dentists",
+  },
+  Object {
+    "href": "/auckland/pharmacies?pop_category=true",
+    "html": "Pharmacies",
+  },
+  Object {
+    "href": "/auckland/medical-clinics?pop_category=true",
+    "html": "Medical clinics",
+  },
+  Object {
+    "href": "/auckland/food-drink-dining?pop_category=true",
+    "html": "Food & drink",
+  },
+  Object {
+    "href": "/auckland/restaurants?pop_category=true",
+    "html": "Restaurants",
+  },
+  Object {
+    "href": "/auckland/takeaway-foods?pop_category=true",
+    "html": "Takeaway foods",
+  },
+  Object {
+    "href": "/auckland/cafes?pop_category=true",
+    "html": "Cafes",
+  },
+  Object {
+    "href": "/auckland/travel-accommodation?pop_category=true",
+    "html": "Travel",
+  },
+  Object {
+    "href": "/auckland/hotels?pop_category=true",
+    "html": "Hotel",
+  },
+  Object {
+    "href": "/auckland/rental?pop_category=true",
+    "html": "Rental",
+  },
+  Object {
+    "href": "/auckland/motels-lodges?pop_category=true",
+    "html": "Motels & lodges",
+  },
+  Object {
+    "href": "/auckland/community?pop_category=true",
+    "html": "Community",
+  },
+  Object {
+    "href": "/auckland/justices-of-the-peace?pop_category=true",
+    "html": "Justices of the peace",
+  },
+  Object {
+    "href": "/auckland/information-centres?pop_category=true",
+    "html": "Information centres",
+  },
+  Object {
+    "href": "/auckland/churches?pop_category=true",
+    "html": "Churches",
+  },
+  Object {
+    "href": "/auckland/retail-shopping?pop_category=true",
+    "html": "Retail & shopping",
+  },
+  Object {
+    "href": "/auckland/florists?pop_category=true",
+    "html": "Florists",
+  },
+  Object {
+    "href": "/auckland/bookshops?pop_category=true",
+    "html": "Bookshops",
+  },
+  Object {
+    "href": "/auckland/pet-shops?pop_category=true",
+    "html": "Pet shops",
+  },
+  Object {
+    "href": "/our-products/yellow-profile/",
+    "html": "Yellow Profile",
+  },
+  Object {
+    "href": "/our-products/seo/",
+    "html": "Search Engine Optimisation",
+  },
+  Object {
+    "href": "/our-products/google-search-ads/",
+    "html": "Google Search Ads",
+  },
+  Object {
+    "href": "/our-products/google-display-ads/",
+    "html": "Google Display Ads",
+  },
+  Object {
+    "href": "/our-products/facebook-ads/",
+    "html": "Facebook Ads",
+  },
+  Object {
+    "href": "/our-products/marketing-automation/",
+    "html": "Marketing Automation & CRM",
+  },
+  Object {
+    "href": "/our-products/yellow-pages/",
+    "html": "Yellow Pages",
+  },
+  Object {
+    "href": "/our-products/white-pages/",
+    "html": "White Pages",
+  },
+  Object {
+    "href": "https://whitepages.co.nz/",
+    "html": "White",
+  },
+  Object {
+    "href": "https://www.finda.co.nz/",
+    "html": "Finda",
+  },
+  Object {
+    "href": "https://www.menus.co.nz/",
+    "html": "Menus",
+  },
+  Object {
+    "href": "https://www.tourism.net.nz/",
+    "html": "NZ Tourism Guide",
+  },
+  Object {
+    "href": "https://yellow.co.nz/018/",
+    "html": "Call 018",
+  },
+  Object {
+    "href": "/resources/customer-stories/",
+    "html": "Customer Stories",
+  },
+  Object {
+    "href": "/resources/tips-and-tools/",
+    "html": "Tips and Tools",
+  },
+  Object {
+    "href": "/resources/yellow-ebook/",
+    "html": "Yellow eBook",
+  },
+  Object {
+    "href": "https://hub.yellow.co.nz/knowledge/faq",
+    "html": "FAQ",
+  },
+  Object {
+    "href": "/resources/flybuys/",
+    "html": "Flybuys",
+  },
+  Object {
+    "href": "/company/about-us/",
+    "html": "Our Team",
+  },
+  Object {
+    "href": "/company/careers/",
+    "html": "Careers",
+  },
+  Object {
+    "href": "/company/contact-us/",
+    "html": "Contact Us",
+  },
+  Object {
+    "href": "tel:0800803803",
+    "html": "0800 803 803",
+  },
+  Object {
+    "href": "mailto:care@yellow.co.nz",
+    "html": "care@yellow.co.nz",
+  },
+  Object {
+    "href": "https://www.facebook.com/yellownz",
+    "html": "",
+  },
+  Object {
+    "href": "https://twitter.com/yellownz",
+    "html": "",
+  },
+  Object {
+    "href": "https://www.linkedin.com/company/yellow-new-zealand",
+    "html": "",
+  },
+  Object {
+    "href": "https://www.youtube.com/user/yellowbiznz",
+    "html": "",
+  },
+  Object {
+    "href": "https://www.google.co.nz/maps/place/Yellow/@-36.897607,174.8006043,17z/data=!3m1!4b1!4m5!3m4!1s0x6d0d48ef0f099ad1:0xbabdfef7f73a92a5!8m2!3d-36.897607!4d174.802793",
+    "html": "",
+  },
+  Object {
+    "href": "/terms/privacy-policy/",
+    "html": "Privacy policy",
+  },
+  Object {
+    "href": "/terms/",
+    "html": "Legal",
+  },
+]
+`;

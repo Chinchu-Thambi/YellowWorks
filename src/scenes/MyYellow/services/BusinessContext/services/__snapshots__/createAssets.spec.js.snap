@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createAssets posts an axios graphql query 1`] = `
+"
+mutation CreateAsset(
+  $caption: String!,
+  $contentUrl: AWSURL!,
+  $businessId: ID!,
+  $customerId: ID
+) {
+  createAsset(
+    businessId: $businessId, 
+    customerId: $customerId, 
+    input: {
+      caption: $caption,
+      contentUrl: $contentUrl,
+      type: ImageObject
+    }
+  ) {
+    caption
+    contentUrl
+    encodingFormat
+    height
+    thumbnailUrl
+    type
+    width
+  }
+}
+"
+`;

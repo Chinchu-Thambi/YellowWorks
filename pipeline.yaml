@@ -1,0 +1,427 @@
+Transform: AWS::Serverless-2016-10-31
+Description: Customer Portal Pipeline
+Resources:
+# Secret
+  SandboxSecret:
+    Type: AWS::CloudFormation::CustomResource
+    Properties:
+      ServiceToken: !ImportValue cloud-platform-secrets-provisioner
+      Name: customer-portal/sandbox
+      Secrets:
+        - Name: ROBOTS_TXT_TEMPLATE_ENV
+          Value: nonproduction
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_BASE_API
+          Value: https://api.bigcommerce.com/stores/
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_CLIENT_ID
+          Value: 5hklud9uzqbpcfze8i62uoosz0raq9v
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_STORE_HASH
+          Value: m9xm1b4t1
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gEo4SOkWn6PSK7nvzRK5udUAAAAfTB7BgkqhkiG9w0BBwagbjBsAgEAMGcGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMoGlYAdDY7VO7TBxXAgEQgDojwzxms+z9v5LUdiX+MbZ5Y4R/RTOylwTii/q3H8+gKqB5GTOXcKFz4vQjzW/ZRTkxGQT6CT/vdIqu
+        - Name: CONTENTFUL_ACCESS_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gGX/yLQxJCzezN/vlj7UxlGAAAAojCBnwYJKoZIhvcNAQcGoIGRMIGOAgEAMIGIBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCEFVZgv8RjDJ6LrlAIBEIBb8u8DkKVlg9PAAlE37KtNGefiul1b79LN1qQENR34GiwrwgdDqkLK2jWn4Fkg0da6Jal06ADyU0t5qbI4Oos+qhGJudWHJiVf3d9eYXd8d5gW5Wz485+ChQW7iw==
+        - Name: CONTENTFUL_MANAGEMENT_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gElFThRGk7eLPk2vfIillR3AAAAkTCBjgYJKoZIhvcNAQcGoIGAMH4CAQAweQYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAxe8JNIKMVnqgRn/coCARCATKvzS6BSvkaPYUPM2wPUbNaxa7lzFcQUJIbpzy7eHjFeVfwg3ZDdANurPH6d3GNs3sW5h6IuwF3APms2aagM8FFJi0wYH7mcpP1JL5I=
+        - Name: CONTENTFUL_PREVIEW_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gGjeTZ+OCJ7xuFgfvIQd1jFAAAAojCBnwYJKoZIhvcNAQcGoIGRMIGOAgEAMIGIBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDL0KvMvrGY5bgIa/4AIBEIBbJcUYIKlBRxbTmQAfFQRgcO6hTvmduGfMj5NNuyfGRG7X9AhhMkMUwShCW3DXGvhH144PfRv/Hk3y99IlcTmLAN5BdSYU6gB6rSU2QfL98m32QmixW5En+tEjLA==
+        - Name: CONTENTFUL_SPACE_ID
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gHzjJ+vDxshx1mzNlagDorDAAAAajBoBgkqhkiG9w0BBwagWzBZAgEAMFQGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMMkH4+zU1qSeXGdyVAgEQgCc+1Lm8WlCCL3gIdGq9lHKLEHWTki1OZFeZlj2oRsfKc1C7eBzD9HI=
+        - Name: DATA_DOG_KEY
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gEYhlt6cEVzdIzFJU+OyCk6AAAAgTB/BgkqhkiG9w0BBwagcjBwAgEAMGsGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMb34T0RztqVv115lIAgEQgD6kJnXtfHRkiT6X89vrPSvEqub7bXW/x4CnyDC+iGmnlICrpYC0CCzop6Fpb456KRrejqyxGgyuz2W/qyHfmw==
+        - Name: GATSBY_APPSYNC_URL
+          Value: https://sandbox.beta.yellow.co.nz/graphql
+          Type: PLAINTEXT
+        - Name: GATSBY_AWS_REGION
+          Value: ap-southeast-2
+          Type: PLAINTEXT
+        - Name: GATSBY_BIGCOMMERCE_ENDPOINT
+          Value: https://sandbox.beta.yellow.co.nz
+          Type: PLAINTEXT
+        - Name: GATSBY_COGNITO_POOL_CLIENT_ID
+          Value: 4mn266o52tsgag90v059so39un
+          Type: PLAINTEXT
+        - Name: GATSBY_COGNITO_USER_POOL_ID
+          Value: ap-southeast-2_CiKWbn1hg
+          Type: PLAINTEXT
+        - Name: GATSBY_OAUTH_DOMAIN
+          Value: auth.sandbox.beta.yellow.co.nz
+          Type: PLAINTEXT
+        - Name: GATSBY_OAUTH_REDIRECT_SIGN_IN
+          Value: https://sandbox.beta.yellow.co.nz/
+          Type: PLAINTEXT
+        - Name: GATSBY_OAUTH_REDIRECT_SIGN_OUT
+          Value: https://sandbox.beta.yellow.co.nz/my-yellow
+          Type: PLAINTEXT
+        - Name: GATSBY_STRIPE_PUBLIC_KEY
+          Value: pk_test_ZF2Je2gF3wFgiyIb5SziBiBZ00YohvpRvv
+          Type: PLAINTEXT
+        - Name: GATSBY_PRODUCT_PLATFORM_ENDPOINT
+          Value: https://products.sandbox.beta.yellow.co.nz/graphql
+          Type: PLAINTEXT
+        - Name: IAM_PRODUCT_PLATFORM_ENDPOINT
+          Value: https://5uld6w6hzzgbflexc7jvtwieee.appsync-api.ap-southeast-2.amazonaws.com/graphql
+          Type: PLAINTEXT
+        - Name: GATSBY_BILLING_PLATFORM_ENDPOINT
+          Value: https://billing.sandbox.beta.yellow.co.nz/graphql
+          Type: PLAINTEXT
+        - Name: GATSBY_S3_BUCKET
+          Value: yellownz-sandbox-ap-southeast-2-content-repository
+          Type: PLAINTEXT
+        - Name: GATSBY_GOOGLE_MAPS_API_KEY
+          Value: AIzaSyD6lhhso80o3IeE_F_guOZGlGvkuFCJNzo
+          Type: PLAINTEXT
+        - Name: GOOGLE_TAG_MANAGER_ID
+          Value: GTM-5BBPBF5
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_ACCOUNT
+          Value: 5892170
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_SEARCHADS_FORMID
+          Value: 1d579778-d0d8-4155-ba55-fb2159bac4cb
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_CANCELYOL_FORMID
+          Value: 0084e5d8-a952-4ad4-9d47-74280cc0e5e5
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_CANCELSA_FORMID
+          Value: 0e1babb0-c9ac-4bb5-be56-f25eeaa6698a
+          Type: PLAINTEXT
+        - Name: GATSBY_PLATFORM_API_KEY
+          Value: da2-ehxpwa6iizbkrlkdwd5yz4cxdq
+          Type: PLAINTEXT
+        - Name: GATSBY_MODE_CUSTOMER_REPORT_URL_ID
+          Value: https://app.mode.com/yellownz/reports/34e045a22706/embed
+          Type: PLAINTEXT
+        - Name: SEGMENT_KEY
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gFjcq5D8vLMbAwqSILxlSHkAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMJ3xmIp+zS1YrPlpqAgEQgDvcj+lowuTbLhKxL0wqGHlmInN2KTJB2baj9ysIOnYMatIuwq81XJHTKdfO30nnrwDo9P/LvUq+eNBxrQ==
+        - Name: SITE_URL
+          Value: https://sandbox.beta.yellow.co.nz
+          Type: PLAINTEXT
+      KmsKeyId: !ImportValue cloud-platform-master-key
+  QASecret:
+    Type: AWS::CloudFormation::CustomResource
+    Properties:
+      ServiceToken: !ImportValue cloud-platform-secrets-provisioner
+      Name: customer-portal/qa
+      Secrets:
+        - Name: ROBOTS_TXT_TEMPLATE_ENV
+          Value: nonproduction
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_BASE_API
+          Value: https://api.bigcommerce.com/stores/
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_CLIENT_ID
+          Value: l2jq6e3wvj548b3ag3ixqmoxx14l1fa
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_STORE_HASH
+          Value: 63d9zk9eel
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gF5gStyikJpp2pa3IsqLpKQAAAAfTB7BgkqhkiG9w0BBwagbjBsAgEAMGcGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMeBPc/hke8lyurwzTAgEQgDpLrVb/8IKWnWs0qXH11sgspKf6UnUOn/cvfrMvAG81GXDxkjL2IgbPB5WavywAoRZJT/s1Te1Ms06z
+        - Name: CONTENTFUL_ACCESS_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gGX/yLQxJCzezN/vlj7UxlGAAAAojCBnwYJKoZIhvcNAQcGoIGRMIGOAgEAMIGIBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCEFVZgv8RjDJ6LrlAIBEIBb8u8DkKVlg9PAAlE37KtNGefiul1b79LN1qQENR34GiwrwgdDqkLK2jWn4Fkg0da6Jal06ADyU0t5qbI4Oos+qhGJudWHJiVf3d9eYXd8d5gW5Wz485+ChQW7iw==
+        - Name: CONTENTFUL_MANAGEMENT_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gElFThRGk7eLPk2vfIillR3AAAAkTCBjgYJKoZIhvcNAQcGoIGAMH4CAQAweQYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAxe8JNIKMVnqgRn/coCARCATKvzS6BSvkaPYUPM2wPUbNaxa7lzFcQUJIbpzy7eHjFeVfwg3ZDdANurPH6d3GNs3sW5h6IuwF3APms2aagM8FFJi0wYH7mcpP1JL5I=
+        - Name: CONTENTFUL_PREVIEW_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gGjeTZ+OCJ7xuFgfvIQd1jFAAAAojCBnwYJKoZIhvcNAQcGoIGRMIGOAgEAMIGIBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDL0KvMvrGY5bgIa/4AIBEIBbJcUYIKlBRxbTmQAfFQRgcO6hTvmduGfMj5NNuyfGRG7X9AhhMkMUwShCW3DXGvhH144PfRv/Hk3y99IlcTmLAN5BdSYU6gB6rSU2QfL98m32QmixW5En+tEjLA==
+        - Name: CONTENTFUL_SPACE_ID
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gHzjJ+vDxshx1mzNlagDorDAAAAajBoBgkqhkiG9w0BBwagWzBZAgEAMFQGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMMkH4+zU1qSeXGdyVAgEQgCc+1Lm8WlCCL3gIdGq9lHKLEHWTki1OZFeZlj2oRsfKc1C7eBzD9HI=
+        - Name: DATA_DOG_KEY
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gEYhlt6cEVzdIzFJU+OyCk6AAAAgTB/BgkqhkiG9w0BBwagcjBwAgEAMGsGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMb34T0RztqVv115lIAgEQgD6kJnXtfHRkiT6X89vrPSvEqub7bXW/x4CnyDC+iGmnlICrpYC0CCzop6Fpb456KRrejqyxGgyuz2W/qyHfmw==
+        - Name: GATSBY_APPSYNC_URL
+          Value: https://qa.beta.yellow.co.nz/graphql
+          Type: PLAINTEXT
+        - Name: GATSBY_AWS_REGION
+          Value: ap-southeast-2
+          Type: PLAINTEXT
+        - Name: GATSBY_BIGCOMMERCE_ENDPOINT
+          Value: https://qa.beta.yellow.co.nz
+          Type: PLAINTEXT
+        - Name: GATSBY_COGNITO_POOL_CLIENT_ID
+          Value: 6k3o2t77j7n680it0sjhknk7dt
+          Type: PLAINTEXT
+        - Name: GATSBY_COGNITO_USER_POOL_ID
+          Value: ap-southeast-2_mOgCTpW2T
+          Type: PLAINTEXT
+        - Name: GATSBY_OAUTH_DOMAIN
+          Value: auth.qa.beta.yellow.co.nz
+          Type: PLAINTEXT
+        - Name: GATSBY_OAUTH_REDIRECT_SIGN_IN
+          Value: https://qa.beta.yellow.co.nz/
+          Type: PLAINTEXT
+        - Name: GATSBY_OAUTH_REDIRECT_SIGN_OUT
+          Value: https://qa.beta.yellow.co.nz/my-yellow
+          Type: PLAINTEXT
+        - Name: GATSBY_STRIPE_PUBLIC_KEY
+          Value: pk_test_TwCw7hLGIr5jAvujnrRxwWfl00oLuopyh0
+          Type: PLAINTEXT
+        - Name: GATSBY_PRODUCT_PLATFORM_ENDPOINT
+          Value: https://products.qa.beta.yellow.co.nz/graphql
+          Type: PLAINTEXT
+        - Name: IAM_PRODUCT_PLATFORM_ENDPOINT
+          Value: https://fwqpbltvgrg7npnjepje3g2jjm.appsync-api.ap-southeast-2.amazonaws.com/graphql
+          Type: PLAINTEXT
+        - Name: GATSBY_BILLING_PLATFORM_ENDPOINT
+          Value: https://billing.qa.beta.yellow.co.nz/graphql
+          Type: PLAINTEXT
+        - Name: GATSBY_GOOGLE_MAPS_API_KEY
+          Value: AIzaSyD6lhhso80o3IeE_F_guOZGlGvkuFCJNzo
+          Type: PLAINTEXT
+        - Name: GATSBY_S3_BUCKET
+          Value: yellownz-qa-ap-southeast-2-content-repository
+          Type: PLAINTEXT
+        - Name: GOOGLE_TAG_MANAGER_ID
+          Value: GTM-5BBPBF5
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_ACCOUNT
+          Value: 5973875
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_SEARCHADS_FORMID
+          Value: 52d92e6e-13b8-40ac-ac04-4ba4801ca747
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_CANCELYOL_FORMID
+          Value: 2962cb55-9c81-486a-bb7b-78253c840419
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_CANCELSA_FORMID
+          Value: a9882cb3-4901-401f-bbec-ae5fa398cc49
+          Type: PLAINTEXT
+        - Name: GATSBY_PLATFORM_API_KEY
+          Value: da2-dxrz6twu6rep5lvrsti4s3lia4
+          Type: PLAINTEXT
+        - Name: GATSBY_MODE_CUSTOMER_REPORT_URL_ID
+          Value: https://app.mode.com/yellownz/reports/34e045a22706/embed
+          Type: PLAINTEXT
+        - Name: SEGMENT_KEY
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gH4J9g5FHQTOkOZ2FybsYh7AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQML0R0eVfFesZPNtWjAgEQgDvY2w9Xoh2ocRGKRxNx4Sul5BdvYABpIodWWP/2OiZWclTCdkhsFcm5aKoFRjteesHjPrkqhqeGjaCH8A==
+        - Name: SITE_URL
+          Value: https://qa.beta.yellow.co.nz
+          Type: PLAINTEXT
+        - Name: CYPRESS_BASE_URL
+          Value: https://qa.beta.yellow.co.nz
+          Type: PLAINTEXT
+        - Name: CYPRESS_TEST_USER
+          Value: cypress.test.yellow@mailinator.com
+          Type: PLAINTEXT
+        - Name: CYPRESS_TEST_PASSWORD
+          Value: Cypress123
+          Type: PLAINTEXT
+      KmsKeyId: !ImportValue cloud-platform-master-key
+  StagingSecret:
+    Type: AWS::CloudFormation::CustomResource
+    Properties:
+      ServiceToken: !ImportValue cloud-platform-secrets-provisioner
+      Name: customer-portal/staging
+      Secrets:
+        - Name: ROBOTS_TXT_TEMPLATE_ENV
+          Value: nonproduction
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_BASE_API
+          Value: https://api.bigcommerce.com/stores/
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_CLIENT_ID
+          Value: 8v36on5zvy54spvhmtat1jwlzcfrpm3
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_STORE_HASH
+          Value: t9lrdnmejn
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gFk3a1lvoxDopEJC+gzU8QgAAAAfTB7BgkqhkiG9w0BBwagbjBsAgEAMGcGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMcKMztokskJwiPDa5AgEQgDpgEiLoKO9dtts87+YctXu+OqpfrWl/idweG/VDNwL58+g+sFJhNX/W3trTA9p4/AxPTQTsDGnNBM32
+        - Name: CONTENTFUL_ACCESS_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gGX/yLQxJCzezN/vlj7UxlGAAAAojCBnwYJKoZIhvcNAQcGoIGRMIGOAgEAMIGIBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCEFVZgv8RjDJ6LrlAIBEIBb8u8DkKVlg9PAAlE37KtNGefiul1b79LN1qQENR34GiwrwgdDqkLK2jWn4Fkg0da6Jal06ADyU0t5qbI4Oos+qhGJudWHJiVf3d9eYXd8d5gW5Wz485+ChQW7iw==
+        - Name: CONTENTFUL_MANAGEMENT_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gElFThRGk7eLPk2vfIillR3AAAAkTCBjgYJKoZIhvcNAQcGoIGAMH4CAQAweQYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAxe8JNIKMVnqgRn/coCARCATKvzS6BSvkaPYUPM2wPUbNaxa7lzFcQUJIbpzy7eHjFeVfwg3ZDdANurPH6d3GNs3sW5h6IuwF3APms2aagM8FFJi0wYH7mcpP1JL5I=
+        - Name: CONTENTFUL_PREVIEW_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gGjeTZ+OCJ7xuFgfvIQd1jFAAAAojCBnwYJKoZIhvcNAQcGoIGRMIGOAgEAMIGIBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDL0KvMvrGY5bgIa/4AIBEIBbJcUYIKlBRxbTmQAfFQRgcO6hTvmduGfMj5NNuyfGRG7X9AhhMkMUwShCW3DXGvhH144PfRv/Hk3y99IlcTmLAN5BdSYU6gB6rSU2QfL98m32QmixW5En+tEjLA==
+        - Name: CONTENTFUL_SPACE_ID
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gHzjJ+vDxshx1mzNlagDorDAAAAajBoBgkqhkiG9w0BBwagWzBZAgEAMFQGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMMkH4+zU1qSeXGdyVAgEQgCc+1Lm8WlCCL3gIdGq9lHKLEHWTki1OZFeZlj2oRsfKc1C7eBzD9HI=
+        - Name: DATA_DOG_KEY
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gEYhlt6cEVzdIzFJU+OyCk6AAAAgTB/BgkqhkiG9w0BBwagcjBwAgEAMGsGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMb34T0RztqVv115lIAgEQgD6kJnXtfHRkiT6X89vrPSvEqub7bXW/x4CnyDC+iGmnlICrpYC0CCzop6Fpb456KRrejqyxGgyuz2W/qyHfmw==
+        - Name: GATSBY_APPSYNC_URL
+          Value: https://staging.beta.yellow.co.nz/graphql
+          Type: PLAINTEXT
+        - Name: GATSBY_AWS_REGION
+          Value: ap-southeast-2
+          Type: PLAINTEXT
+        - Name: GATSBY_BIGCOMMERCE_ENDPOINT
+          Value: https://staging.beta.yellow.co.nz
+          Type: PLAINTEXT
+        - Name: GATSBY_COGNITO_POOL_CLIENT_ID
+          Value: 58t6at6rr05eiru7ol3cgk11v7
+          Type: PLAINTEXT
+        - Name: GATSBY_COGNITO_USER_POOL_ID
+          Value: ap-southeast-2_rr3hpnzuS
+          Type: PLAINTEXT
+        - Name: GATSBY_OAUTH_DOMAIN
+          Value: auth.staging.beta.yellow.co.nz
+          Type: PLAINTEXT
+        - Name: GATSBY_OAUTH_REDIRECT_SIGN_IN
+          Value: https://staging.beta.yellow.co.nz/
+          Type: PLAINTEXT
+        - Name: GATSBY_OAUTH_REDIRECT_SIGN_OUT
+          Value: https://staging.beta.yellow.co.nz/my-yellow
+          Type: PLAINTEXT
+        - Name: GATSBY_STRIPE_PUBLIC_KEY
+          Value: pk_test_jGQaKSG53HN33l9zYkNT7HMu00VYpfqebc
+          Type: PLAINTEXT
+        - Name: GATSBY_PRODUCT_PLATFORM_ENDPOINT
+          Value: https://products.staging.beta.yellow.co.nz/graphql
+          Type: PLAINTEXT
+        - Name: IAM_PRODUCT_PLATFORM_ENDPOINT
+          Value: https://hfztho5so5bnzed4fanu5raf2e.appsync-api.ap-southeast-2.amazonaws.com/graphql
+          Type: PLAINTEXT
+        - Name: GATSBY_BILLING_PLATFORM_ENDPOINT
+          Value: https://billing.staging.beta.yellow.co.nz/graphql
+          Type: PLAINTEXT
+        - Name: GATSBY_GOOGLE_MAPS_API_KEY
+          Value: AIzaSyD6lhhso80o3IeE_F_guOZGlGvkuFCJNzo
+          Type: PLAINTEXT
+        - Name: GATSBY_S3_BUCKET
+          Value: yellownz-staging-ap-southeast-2-content-repository
+          Type: PLAINTEXT
+        - Name: GOOGLE_TAG_MANAGER_ID
+          Value: GTM-5BBPBF5
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_ACCOUNT
+          Value: 5892174
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_SEARCHADS_FORMID
+          Value: 3a0d1fa5-ca74-49f7-a356-e3e5803ebb75
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_CANCELYOL_FORMID
+          Value: 74618587-a534-4015-8191-1007957de0ea
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_CANCELSA_FORMID
+          Value: ffb09bde-f5fb-4104-9b54-dc987bf83555
+          Type: PLAINTEXT
+        - Name: GATSBY_PLATFORM_API_KEY
+          Value: da2-64qzmogvzva77he7h2unhnl6pi
+          Type: PLAINTEXT
+        - Name: GATSBY_MODE_CUSTOMER_REPORT_URL_ID
+          Value: https://app.mode.com/yellownz/reports/14a14f39c58f/embed
+          Type: PLAINTEXT
+        - Name: SEGMENT_KEY
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gHDjX+03AvHXNQtoCx670CvAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMBQtSahh/HxRNkzYcAgEQgDvkfZju7a7v/FjuPqFkODeeyT5wcsvXj672XFobm98R9OvaNSXTUwXChnZYV+PDcEBwMUoH9MK2OuhsmA==
+        - Name: SITE_URL
+          Value: https://staging.beta.yellow.co.nz
+          Type: PLAINTEXT
+      KmsKeyId: !ImportValue cloud-platform-master-key
+  ProductionSecret:
+    Type: AWS::CloudFormation::CustomResource
+    Properties:
+      ServiceToken: !ImportValue cloud-platform-secrets-provisioner
+      Name: customer-portal/production
+      Secrets:
+        - Name: ROBOTS_TXT_TEMPLATE_ENV
+          Value: production
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_BASE_API
+          Value: https://api.bigcommerce.com/stores/
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_CLIENT_ID
+          Value: kkcnm335qjiuujirhijldcbsdkcqgiy
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_STORE_HASH
+          Value: npte00i8ef
+          Type: PLAINTEXT
+        - Name: BIGCOMMERCE_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gEnyhX/dbb+GV2ktzTBLs+xAAAAfTB7BgkqhkiG9w0BBwagbjBsAgEAMGcGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMhQoOSDoFsakcmlMSAgEQgDpkNT78d4gr+IiWSPHcqvkceVsFZd92DIUt1c6WvbhKtD3IO7ywQIE13RzPT5Z0kySGnGtSAa7hJkAt
+        - Name: CONTENTFUL_ACCESS_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gGX/yLQxJCzezN/vlj7UxlGAAAAojCBnwYJKoZIhvcNAQcGoIGRMIGOAgEAMIGIBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCEFVZgv8RjDJ6LrlAIBEIBb8u8DkKVlg9PAAlE37KtNGefiul1b79LN1qQENR34GiwrwgdDqkLK2jWn4Fkg0da6Jal06ADyU0t5qbI4Oos+qhGJudWHJiVf3d9eYXd8d5gW5Wz485+ChQW7iw==
+        - Name: CONTENTFUL_MANAGEMENT_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gElFThRGk7eLPk2vfIillR3AAAAkTCBjgYJKoZIhvcNAQcGoIGAMH4CAQAweQYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAxe8JNIKMVnqgRn/coCARCATKvzS6BSvkaPYUPM2wPUbNaxa7lzFcQUJIbpzy7eHjFeVfwg3ZDdANurPH6d3GNs3sW5h6IuwF3APms2aagM8FFJi0wYH7mcpP1JL5I=
+        - Name: CONTENTFUL_PREVIEW_TOKEN
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gGjeTZ+OCJ7xuFgfvIQd1jFAAAAojCBnwYJKoZIhvcNAQcGoIGRMIGOAgEAMIGIBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDL0KvMvrGY5bgIa/4AIBEIBbJcUYIKlBRxbTmQAfFQRgcO6hTvmduGfMj5NNuyfGRG7X9AhhMkMUwShCW3DXGvhH144PfRv/Hk3y99IlcTmLAN5BdSYU6gB6rSU2QfL98m32QmixW5En+tEjLA==
+        - Name: CONTENTFUL_SPACE_ID
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gHzjJ+vDxshx1mzNlagDorDAAAAajBoBgkqhkiG9w0BBwagWzBZAgEAMFQGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMMkH4+zU1qSeXGdyVAgEQgCc+1Lm8WlCCL3gIdGq9lHKLEHWTki1OZFeZlj2oRsfKc1C7eBzD9HI=
+        - Name: DATA_DOG_KEY
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gEYhlt6cEVzdIzFJU+OyCk6AAAAgTB/BgkqhkiG9w0BBwagcjBwAgEAMGsGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMb34T0RztqVv115lIAgEQgD6kJnXtfHRkiT6X89vrPSvEqub7bXW/x4CnyDC+iGmnlICrpYC0CCzop6Fpb456KRrejqyxGgyuz2W/qyHfmw==
+        - Name: GATSBY_APPSYNC_URL
+          Value: https://yellow.co.nz/graphql
+          Type: PLAINTEXT
+        - Name: GATSBY_AWS_REGION
+          Value: ap-southeast-2
+          Type: PLAINTEXT
+        - Name: GATSBY_BIGCOMMERCE_ENDPOINT
+          Value: https://yellow.co.nz
+          Type: PLAINTEXT
+        - Name: GATSBY_COGNITO_POOL_CLIENT_ID
+          Value: 5q5g4ad21tfoaslo6k4h93gtl
+          Type: PLAINTEXT
+        - Name: GATSBY_COGNITO_USER_POOL_ID
+          Value: ap-southeast-2_bA88Q333D
+          Type: PLAINTEXT
+        - Name: GATSBY_OAUTH_DOMAIN
+          Value: auth.yellow.co.nz
+          Type: PLAINTEXT
+        - Name: GATSBY_OAUTH_REDIRECT_SIGN_IN
+          Value: https://yellow.co.nz/
+          Type: PLAINTEXT
+        - Name: GATSBY_OAUTH_REDIRECT_SIGN_OUT
+          Value: https://yellow.co.nz/my-yellow
+          Type: PLAINTEXT
+        - Name: GATSBY_STRIPE_PUBLIC_KEY
+          Value: pk_live_lGPu1HVLRpfiugHUvlTLZhlP
+          Type: PLAINTEXT
+        - Name: GATSBY_PRODUCT_PLATFORM_ENDPOINT
+          Value: https://products.yellow.co.nz/graphql
+          Type: PLAINTEXT
+        - Name: IAM_PRODUCT_PLATFORM_ENDPOINT
+          Value: https://pgrxqcklibactloteasl2jl2sq.appsync-api.ap-southeast-2.amazonaws.com/graphql
+          Type: PLAINTEXT
+        - Name: GATSBY_BILLING_PLATFORM_ENDPOINT
+          Value: https://billing-nw.yellow.co.nz/graphql
+          Type: PLAINTEXT
+        - Name: GATSBY_GOOGLE_MAPS_API_KEY
+          Value: AIzaSyD6lhhso80o3IeE_F_guOZGlGvkuFCJNzo
+          Type: PLAINTEXT
+        - Name: GATSBY_S3_BUCKET
+          Value: yellownz-production-ap-southeast-2-content-repository
+          Type: PLAINTEXT
+        - Name: GOOGLE_TAG_MANAGER_ID
+          Value: GTM-5BBPBF5
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_ACCOUNT
+          Value: 5250769
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_SEARCHADS_FORMID
+          Value: 0106bf2c-27e3-4938-a3ec-b82fbd7dcff8
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_CANCELYOL_FORMID
+          Value: b14df47f-68fc-413b-9a2c-a843529e57c1
+          Type: PLAINTEXT
+        - Name: GATSBY_HUBSPOT_CANCELSA_FORMID
+          Value: 9eb99a7b-e8ed-4302-b63c-8eeb4748bb81
+          Type: PLAINTEXT
+        - Name: GATSBY_PLATFORM_API_KEY
+          Value: da2-qv6q3b7rkbee7ljyewh63lwgny
+          Type: PLAINTEXT
+        - Name: GATSBY_MODE_CUSTOMER_REPORT_URL_ID
+          Value: https://app.mode.com/yellownz/reports/14a14f39c58f/embed
+          Type: PLAINTEXT
+        - Name: SEGMENT_KEY
+          Value: AQICAHjEIpjLWRhKLuZr6R3itRix3c6pP++I9AqiVmSkn5Qi5gH4G3bJLTx9wrMk8WZ/GeJdAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMuEX8bR6W4BokJQI0AgEQgDuboXU8jIkWK8mAbHGpRdxCE4BHDEr5FMrn9q084lhWe5S5LpPSY8vxNg+kaXlVOIZ3sKW+bpvPcKh0mg==
+        - Name: SITE_URL
+          Value: https://yellow.co.nz
+          Type: PLAINTEXT
+      KmsKeyId: !ImportValue cloud-platform-master-key
+
+  Pipeline:
+    Type: AWS::Serverless::Application
+    Properties:
+      Location:
+        ApplicationId: arn:aws:serverlessrepo:ap-southeast-2:366861212343:applications/web-pipeline
+        SemanticVersion: 0.1.3
+      Parameters: 
+        PipelineName: customer-portal
+        RepositoryName: ChinchuT2021/customer_portal
+        CodeBuildImage: 366861212343.dkr.ecr.ap-southeast-2.amazonaws.com/yellownz/codebuild:latest
+        PrivilegedMode: false
+        GitCloneDepth: 0
+        GlobalDeployment: false
+        EnvironmentDeployment: false
+        DeploymentComputeType: BUILD_GENERAL1_MEDIUM
+        BuildComputeType: BUILD_GENERAL1_MEDIUM
+        IntegrationComputeType: BUILD_GENERAL1_MEDIUM

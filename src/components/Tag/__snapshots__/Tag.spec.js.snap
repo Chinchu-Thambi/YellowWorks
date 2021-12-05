@@ -1,0 +1,291 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag should match snapshot 1`] = `
+<Component
+  theme={
+    Object {
+      "breakpoints": Array [
+        "36em",
+        "48em",
+        "62em",
+        "75em",
+        "90em",
+      ],
+      "buttons": Object {
+        "outline": Object {
+          "backgroundColor": "transparent",
+          "boxShadow": "inset 0 0 2px",
+          "color": "#07c",
+        },
+        "primary": Object {
+          "backgroundColor": "#FBE122",
+          "borderRadius": "40px",
+          "color": "black",
+          "fontFamily": "Montserrat",
+          "fontSize": "0.875rem",
+          "fontWeight": 500,
+          "textTransform": "uppercase",
+        },
+      },
+      "colors": Object {
+        "athensGray": "#f3f5f8",
+        "azure": "#345DA4",
+        "black": "#000",
+        "blue": "#07c",
+        "brand": "#1F2A44",
+        "brandLight": "#343E55",
+        "cerulean": "#00aded",
+        "concrete": "#f2f2f2",
+        "dolphin": "#667",
+        "dustyGray": "#999",
+        "gallery": "#eee",
+        "lightGray": "#f6f6ff",
+        "mischka": "#ddd",
+        "pleinDeVie": "#BABABA",
+        "primary": "#FBE122",
+        "raven": "#797F8F",
+        "silver": "#ccc",
+        "spunPearl": "#aab",
+        "white": "#fff",
+        "yellow": "#F9E01A",
+      },
+      "containerWidth": Array [
+        1,
+        "33.75rem",
+        "43.75rem",
+        "58.75rem",
+        "73.75rem",
+        "90.00rem",
+      ],
+      "fontSizes": Array [
+        "0.875rem",
+        "0.75rem",
+        "1rem",
+        "1.5rem",
+        "1.875rem",
+        "2.25rem",
+        "3.75rem",
+      ],
+      "fontWeight": Array [
+        "400",
+        "700",
+      ],
+      "fontWeights": Object {
+        "body": "400",
+        "bold": "700",
+      },
+      "fonts": Object {
+        "sans": "Lato",
+        "title": "Montserrat",
+      },
+      "palette": Object {
+        "accent": Array [
+          Array [
+            "#D83F3D",
+            "#E06564",
+            "#E88C8B",
+            "#EFB2B1",
+            "#F7D9D8",
+            "#FDF5F5",
+          ],
+          Array [
+            "#64B056",
+            "#83C078",
+            "#A2D09A",
+            "#C1DFBB",
+            "#E0EFDD",
+            "#F7FBF6",
+          ],
+          Array [
+            "#ED7047",
+            "#F18D6C",
+            "#F4A991",
+            "#F8C6B5",
+            "#FBE2DA",
+            "#FEF8F6",
+          ],
+          Array [
+            "#6BBEE7",
+            "#89CBEC",
+            "#A6D8F1",
+            "#C4E5F5",
+            "#E1F2FA",
+            "#F7FBFE",
+          ],
+          Array [
+            "#6D3A96",
+            "#8A61AB",
+            "#A789C0",
+            "#C5B0D5",
+            "#E2D8EA",
+            "#F7F5FA",
+          ],
+          Array [
+            "#61679E",
+            "#8185B1",
+            "#A0A4C5",
+            "#C0C2D8",
+            "#DFE1EC",
+            "#F7F7FA",
+          ],
+        ],
+        "base": Array [
+          "#FFFFFF",
+          "#F4F4F4",
+          "#F2F2F2",
+          "#E7E7E7",
+        ],
+        "brand": Array [
+          "#FBE122",
+          "#FCE74E",
+          "#FDED7A",
+          "#FDF3A7",
+          "#FEF9D3",
+          "#FFFDF4",
+        ],
+        "contrast": Array [
+          "#1F2A44",
+          "#4C5569",
+          "#797F8F",
+          "#A5AAB4",
+          "#D2D4DA",
+          "#F3F5F8",
+        ],
+        "error": Array [
+          "#D83F3D",
+          "#E06564",
+          "#E88C8B",
+          "#EFB2B1",
+          "#F7D9D8",
+          "#FDF5F5",
+        ],
+        "navigation": Array [
+          "#6BBEE7",
+          "#89CBEC",
+          "#A6D8F1",
+          "#C4E5F5",
+          "#E1F2FA",
+          "#F7FBFE",
+        ],
+        "success": Array [
+          "#64B056",
+          "#83C078",
+          "#A2D09A",
+          "#C1DFBB",
+          "#E0EFDD",
+          "#F7FBF6",
+        ],
+        "support": Array [
+          "#6D3A96",
+          "#8A61AB",
+          "#A789C0",
+          "#C5B0D5",
+          "#E2D8EA",
+          "#F7F5FA",
+        ],
+        "warn": Array [
+          "#ED7047",
+          "#F18D6C",
+          "#F4A991",
+          "#F8C6B5",
+          "#FBE2DA",
+          "#FEF8F6",
+        ],
+      },
+      "radii": Array [
+        "0",
+        "0.15625rem",
+        "0.3125rem",
+        "0.625rem",
+      ],
+      "shadows": Object {
+        "large": "0 10px 15px -3px rgb(31, 42, 68, 0.1), 0 4px 6px -2px rgb(31, 42, 68, 0.05)",
+        "medium": "0 4px 6px -1px rgb(31, 42, 68, 0.1), 0 2px 4px -1px rgb(31, 42, 68, 0.06)",
+        "small": "0 1px 2px 0 rgb(31, 42, 68, 0.05)",
+        "subtle": "0 0 0 1px rgb(31, 42, 68, 0.05)",
+      },
+      "space": Array [
+        "0rem",
+        "0.3125rem",
+        "0.625rem",
+        "1.25rem",
+        "2rem",
+        "3rem",
+        "4rem",
+        "5rem",
+        "6rem",
+        "7rem",
+        "8rem",
+        "10rem",
+        "12rem",
+        "14rem",
+        "16rem",
+      ],
+      "zIndex": Object {
+        "dropdown": 1000,
+        "fixed": 1030,
+        "modal": 1050,
+        "modalBackdrop": 1040,
+        "popOver": 1060,
+        "sticky": 1020,
+        "tooltip": 1070,
+      },
+    }
+  }
+>
+  <Tag
+    onRemove={[Function]}
+    readonly={false}
+  >
+    <styled.span>
+      <span
+        className="sc-bdnylx hDeDJa"
+      >
+        <styled.button
+          aria-label="Remove"
+          onClick={[Function]}
+          title="Remove"
+          type="button"
+        >
+          <button
+            aria-label="Remove"
+            className="sc-gtssRu eGpIiL"
+            onClick={[Function]}
+            title="Remove"
+            type="button"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 22 22"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                cx="11"
+                cy="11"
+                fill="#D2D4DA"
+                r="11"
+              />
+              <path
+                d="M11 6.90625V15.0927"
+                stroke="white"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="2"
+              />
+              <path
+                d="M7.11719 11L15.3032 11"
+                stroke="white"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeMiterlimit="10"
+                strokeWidth="2"
+              />
+            </svg>
+          </button>
+        </styled.button>
+      </span>
+    </styled.span>
+  </Tag>
+</Component>
+`;

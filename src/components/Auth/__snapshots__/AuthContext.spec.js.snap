@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthContext sets federated logins and redirects 1`] = `
+Array [
+  Array [
+    "__storage_test__",
+    "__storage_test__",
+  ],
+  Array [
+    "yp_redirect",
+    "/target/url",
+  ],
+  Array [
+    "yp_provider",
+    "Google",
+  ],
+  Array [
+    "__storage_test__",
+    "__storage_test__",
+  ],
+  Array [
+    "yp_redirect",
+    "/target/url",
+  ],
+  Array [
+    "yp_provider",
+    "Facebook",
+  ],
+  Array [
+    "__storage_test__",
+    "__storage_test__",
+  ],
+  Array [
+    "yp_redirect",
+    "/target/url",
+  ],
+  Array [
+    "yp_provider",
+    "Yellow",
+  ],
+]
+`;
+
+exports[`AuthContext sets federated logins and redirects 2`] = `
+Array [
+  Array [
+    Object {
+      "provider": "Google",
+    },
+  ],
+  Array [
+    Object {
+      "provider": "Facebook",
+    },
+  ],
+  Array [
+    Object {
+      "provider": "Yellow",
+    },
+  ],
+]
+`;

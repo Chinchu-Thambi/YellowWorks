@@ -1,0 +1,99 @@
+{
+  "businessProfile": {
+    "logo": {
+      "caption": "This is a logo caption",
+      "contentUrl": "http://example.com/content-url",
+      "height": "200 px",
+      "width": "200 px"
+    },
+    "description": "This is a business description2",
+    "foundingDate": "2019-10-15",
+    "legalName": "Official Legal, Real Official22",
+    "name": "123 BLUE LIMITED",
+    "url": "http://example.com/website-url",
+    "sameAs": [
+      {
+        "name": "Facebook",
+        "url": "http://example.com/facebook-url"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "category": {
+        "id": "225",
+        "name": "Cafe",
+        "keywords": [
+          {
+            "keyword": "Owner Operated",
+            "property": "Assurances"
+          }
+        ]
+      }
+    },
+    {
+      "category": {
+        "id": "224",
+        "name": "Takeaway food",
+        "keywords": [
+          {
+            "keyword": "Refrigerators",
+            "property": "Equipment"
+          },
+          {
+            "keyword": "Freezer",
+            "property": "Equipment"
+          }
+        ]
+      },
+      "region": {
+        "id": 10009,
+        "name": "Auckland Region"
+      },
+      "sponsorship": "SILVER"
+    }
+  ],
+  "alias": [
+    "This is a business alias22"
+  ],
+  "location": {
+    "postalAddress": {
+      "addressCountry": "New Zealand",
+      "addressLocality": "Auckland",
+      "postalCode": "2302",
+      "streetAddress": [
+        "604 Great South Road"
+      ]
+    },
+    "telephone": "123123123",
+    "mobileNumber": "123123",
+    "id": "123123",
+    "hasMap": true,
+    "faxNumber": "123123",
+    "email": "asd@qw",
+    "contactPoint": [
+      {
+        "contactType": "Phone",
+        "telephone": "123123123"
+      }
+    ],
+    "address": {
+      "addressCountry": "New Zealand",
+      "addressLocality": {
+        "id": "locality id",
+        "value": "locality value",
+        "label": "locality label"
+      },
+      "postalCode": "2302",
+      "streetAddress": [
+        "604 Great South Road"
+      ]
+    },
+    "tollFreeNumber": "123123123"
+  },
+  "paymentAccepted": [
+    "CheckInAdvance",
+    "VISA",
+    "AmericanExpress"
+  ]
+}

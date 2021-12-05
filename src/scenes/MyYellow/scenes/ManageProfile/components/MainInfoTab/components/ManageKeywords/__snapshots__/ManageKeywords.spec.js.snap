@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ManageKeywords handles keywords 1`] = `
+Array [
+  Object {
+    "data": Array [
+      Object {
+        "id": 1,
+        "keywords": Array [
+          Object {
+            "keyword": "BRANZ",
+            "property": "Associations",
+          },
+        ],
+      },
+    ],
+    "path": Array [
+      "categories",
+    ],
+  },
+]
+`;

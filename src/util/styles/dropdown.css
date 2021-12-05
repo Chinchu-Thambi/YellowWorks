@@ -1,0 +1,10 @@
+/* Used to detect in JavaScript if apps have loaded styles or not. */
+:root {
+  --reach-menu-button: 1;
+}
+
+[data-reach-menu] {
+  display: block;
+  position: absolute;
+  z-index: 1200;
+}

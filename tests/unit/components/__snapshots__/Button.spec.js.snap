@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`buttons exports a primary button 1`] = `
+<button
+  class="sc-dlnjPT liGRPc"
+/>
+`;
+
+exports[`buttons exports a secondary button 1`] = `
+<button
+  class="sc-dlnjPT imAVyc"
+/>
+`;

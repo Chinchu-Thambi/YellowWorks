@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WhatMakesUsDifferentModal handles what makes us different input and modal 1`] = `
+Array [
+  Object {
+    "data": "Level unlocked",
+    "path": Array [
+      "businessProfile",
+      "slogan",
+    ],
+  },
+]
+`;

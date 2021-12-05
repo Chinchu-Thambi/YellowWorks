@@ -1,0 +1,279 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gatsby config should not change by accident 1`] = `
+Object {
+  "developMiddleware": [Function],
+  "plugins": Array [
+    Object {
+      "options": Object {
+        "displayName": false,
+      },
+      "resolve": "gatsby-plugin-styled-components",
+    },
+    "gatsby-plugin-react-helmet",
+    Object {
+      "options": Object {
+        "background_color": "#FFFFFF",
+        "display": "standalone",
+        "icon": "src/assets/logos/y-favicon.png",
+        "name": "Yellow NZ",
+        "short_name": "Yellow NZ",
+        "start_url": "/",
+        "theme_color": "#1F2A44",
+      },
+      "resolve": "gatsby-plugin-manifest",
+    },
+    Object {
+      "options": Object {
+        "exclude": Array [
+          "/my-yellow/",
+          "/my-yellow/*",
+          "/our-products/search-ads/onboarding/",
+          "/our-products/search-ads/onboarding/*",
+          "/example/",
+          "/example/*",
+          "/demo/",
+          "/demo/*",
+        ],
+        "output": "sitemap_statics.xml",
+        "serialize": [Function],
+      },
+      "resolve": "gatsby-plugin-sitemap",
+    },
+    "gatsby-plugin-offline",
+    Object {
+      "options": Object {
+        "postCssPlugins": Array [
+          Processor {
+            "plugins": Array [
+              [Function],
+              [Function],
+            ],
+            "postcssPlugin": "tailwind",
+            "postcssVersion": "7.0.21",
+            "version": "7.0.21",
+          },
+          [Function],
+        ],
+      },
+      "resolve": "gatsby-plugin-postcss",
+    },
+    Object {
+      "options": Object {
+        "display": "swap",
+        "fonts": Array [
+          "lato:400,400i,700",
+          "montserrat:400,700",
+        ],
+      },
+      "resolve": "gatsby-plugin-google-fonts",
+    },
+    "gatsby-plugin-no-sourcemaps",
+    Object {
+      "resolve": "gatsby-plugin-react-axe",
+    },
+    Object {
+      "options": Object {
+        "exclude": /\\(node_modules\\|\\.cache\\|public\\)/,
+        "options": Object {
+          "emitWarning": true,
+          "failOnError": true,
+        },
+        "stages": Array [
+          "develop",
+          "build-javascript",
+        ],
+        "test": /\\\\\\.js\\$\\|\\\\\\.jsx\\$/,
+      },
+      "resolve": "gatsby-plugin-eslint",
+    },
+    Object {
+      "options": Object {
+        "accessToken": "mock-preview-token",
+        "host": "mock-host",
+        "spaceId": "mock-space-id",
+      },
+      "resolve": "gatsby-source-contentful",
+    },
+    Object {
+      "options": Object {
+        "fetch": [Function],
+        "fieldName": "productPlatform",
+        "typeName": "ProductPlatform",
+        "url": "http://mock-product-platform/",
+      },
+      "resolve": "gatsby-source-graphql",
+    },
+    Object {
+      "options": Object {
+        "trackingCode": "mock-hubspot-account",
+      },
+      "resolve": "gatsby-plugin-hubspot",
+    },
+    Object {
+      "options": Object {
+        "devKey": "mock-segment-key",
+        "prodKey": "mock-segment-key",
+      },
+      "resolve": "gatsby-plugin-segment-js",
+    },
+    Object {
+      "options": Object {
+        "disable": false,
+        "onLoad": "() => DD_LOGS.init({
+            clientToken: 'mock-datadog-key',
+            forwardErrorsToLogs: true,
+        })",
+        "src": "https://www.datadoghq-browser-agent.com/datadog-logs-us.js",
+      },
+      "resolve": "gatsby-plugin-load-script",
+    },
+    Object {
+      "options": Object {
+        "async": true,
+      },
+      "resolve": "gatsby-plugin-stripe",
+    },
+    Object {
+      "options": Object {
+        "crossorigin": true,
+        "hash": "sha512",
+      },
+      "resolve": "gatsby-plugin-sri",
+    },
+    Object {
+      "options": Object {
+        "env": Object {
+          "development": Object {
+            "policy": Array [
+              Object {
+                "disallow": Array [
+                  "/api/",
+                  "/services/",
+                  "/user/",
+                  "reset/",
+                  "listing/",
+                  "review/",
+                  "designs/",
+                  "/*?_bc_fsnf=1*",
+                  "/*&_bc_fsnf=1*",
+                ],
+                "userAgent": "*",
+              },
+              Object {
+                "crawlDelay": 5,
+                "disallow": Array [
+                  "/api/",
+                  "/services/",
+                  "/user/",
+                  "/reset/",
+                  "/listing/",
+                  "/review/",
+                  "/designs/",
+                ],
+                "userAgent": "bingbot",
+              },
+              Object {
+                "disallow": Array [
+                  "/account.php",
+                  "/cart.php",
+                  "/checkout.php",
+                  "/finishorder.php",
+                  "/login.php",
+                  "/orderstatus.php",
+                  "/postreview.php",
+                  "/productimage.php",
+                  "/productupdates.php",
+                  "/remote.php",
+                  "/search.php",
+                  "/viewfile.php",
+                  "/wishlist.php",
+                  "/admin/",
+                  "/__socialshop/ ",
+                ],
+                "userAgent": "AdsBot-Google",
+              },
+              Object {
+                "allow": "/feeds/*",
+                "userAgent": "google-xrawler",
+              },
+            ],
+          },
+          "nonproduction": Object {
+            "policy": Array [
+              Object {
+                "disallow": Array [
+                  "/",
+                ],
+                "userAgent": "*",
+              },
+            ],
+          },
+          "production": Object {
+            "policy": Array [
+              Object {
+                "disallow": Array [
+                  "/api/",
+                  "/services/",
+                  "/user/",
+                  "reset/",
+                  "listing/",
+                  "review/",
+                  "designs/",
+                  "/*?_bc_fsnf=1*",
+                  "/*&_bc_fsnf=1*",
+                ],
+                "userAgent": "*",
+              },
+              Object {
+                "crawlDelay": 5,
+                "disallow": Array [
+                  "/api/",
+                  "/services/",
+                  "/user/",
+                  "/reset/",
+                  "/listing/",
+                  "/review/",
+                  "/designs/",
+                ],
+                "userAgent": "bingbot",
+              },
+              Object {
+                "disallow": Array [
+                  "/account.php",
+                  "/cart.php",
+                  "/checkout.php",
+                  "/finishorder.php",
+                  "/login.php",
+                  "/orderstatus.php",
+                  "/postreview.php",
+                  "/productimage.php",
+                  "/productupdates.php",
+                  "/remote.php",
+                  "/search.php",
+                  "/viewfile.php",
+                  "/wishlist.php",
+                  "/admin/",
+                  "/__socialshop/ ",
+                ],
+                "userAgent": "AdsBot-Google",
+              },
+              Object {
+                "allow": "/feeds/*",
+                "userAgent": "google-xrawler",
+              },
+            ],
+          },
+        },
+        "host": "mock-site-url",
+        "resolveEnv": [Function],
+        "sitemap": "mock-site-url/sitemap.xml",
+      },
+      "resolve": "gatsby-plugin-robots-txt",
+    },
+  ],
+  "siteMetadata": Object {
+    "siteUrl": "mock-site-url",
+  },
+}
+`;

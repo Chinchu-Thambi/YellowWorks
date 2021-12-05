@@ -1,0 +1,30 @@
+/* Used to detect in JavaScript if apps have loaded styles or not. */
+:root {
+  --reach-dialog: 1;
+}
+
+[data-reach-dialog-overlay] {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1050;
+  overflow: auto;
+  position: fixed;
+  background: hsla(0, 0%, 0%, 0.33);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-reach-dialog-content] {
+/* Remove unnecessary css focus indicator for the content section */
+  outline: none;
+}
+
+ /* places auto complete container, in use together with <GooglePlacesAutocomplete />
+ It's originally set as 1000 but because <Modal /> is 1050 as per bootstrap conventions, we need to change it here. */
+.pac-container {
+  z-index: 1060;
+}

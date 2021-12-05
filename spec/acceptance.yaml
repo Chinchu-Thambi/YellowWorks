@@ -1,0 +1,31 @@
+version: 0.2
+
+env:
+  exported-variables:
+    # Exporting variables that will be used by the "publish-version" lambda function
+    - PULL_REQUEST
+
+phases:
+  pre_build:
+    commands:
+      # Temporary fix for CodeBuild issue where empty refs folder is not uploaded in source artifact
+      - mkdir -p .git/refs
+      - COMMIT_ID=$(make version)
+      - export COMMIT_ID
+      - export AWS_PROFILE=yellownz-staging
+
+  build:
+    commands:
+      - make publish/staging
+      - make acceptance
+      - mkdir -p build
+      - zip -r build/${COMMIT_ID}.zip .
+
+  post_build:
+    commands:
+      - source ./EXPORTED_VARS.txt
+
+artifacts:
+  files:
+    - build/${COMMIT_ID}.zip
+  discard-paths: yes

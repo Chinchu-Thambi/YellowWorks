@@ -1,0 +1,13 @@
+/* 🌊 🐳 🌊 🐳 🌊 🐳 🌊 🐳 🌊 🐳  */
+/* ⛵️⛵️⛵️ Tailwind ⛵️⛵️⛵️ */
+
+/*! purgecss start ignore */
+/* https://tailwindcss.com/docs/adding-base-styles */
+/* https://tailwindcss.com/docs/preflight */
+/* NOTE: preflight is disabled! (in tailwind.config.js) */
+@tailwind base;
+@tailwind components;
+/*! purgecss end ignore */
+@tailwind utilities;
+
+/* 🌊 🐳 🌊 🐳 🌊 🐳 🌊 🐳 🌊 🐳  */

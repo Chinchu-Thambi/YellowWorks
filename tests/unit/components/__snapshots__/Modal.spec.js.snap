@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should match snapshot 1`] = `
+<Component
+  theme={
+    Object {
+      "breakpoints": Array [
+        1,
+      ],
+      "buttons": Object {
+        "primary": Object {
+          "borderRadius": "",
+        },
+      },
+      "colors": Object {
+        "white": "",
+      },
+      "fontSizes": Array [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+      ],
+      "fonts": Object {
+        "mono": "fontMono",
+      },
+      "palette": Object {
+        "base": Array [
+          0,
+        ],
+        "brand": Array [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+        ],
+        "contrast": Array [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+        ],
+      },
+      "shadows": Object {
+        "large": 1,
+        "small": 0,
+      },
+      "space": Array [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+      ],
+      "zIndex": Object {
+        "sticky": 1000,
+      },
+    }
+  }
+>
+  <Modal
+    dismissable={true}
+    isVisible={false}
+    onDismiss={[Function]}
+  >
+    <Styled(Dialog)
+      isOpen={false}
+      onDismiss={[Function]}
+    >
+      <Dialog
+        className="sc-bdnylx QZZVF"
+        isOpen={false}
+        onDismiss={[Function]}
+      >
+        <ForwardRef
+          isOpen={false}
+          onDismiss={[Function]}
+        >
+          <Component
+            didMount={[Function]}
+            getInitialState={[Function]}
+            getRefs={[Function]}
+          />
+        </ForwardRef>
+      </Dialog>
+    </Styled(Dialog)>
+  </Modal>
+</Component>
+`;

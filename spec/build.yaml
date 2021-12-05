@@ -1,0 +1,56 @@
+version: 0.2
+
+env:
+  parameter-store:
+    QA_CONFIG: /aws/reference/secretsmanager/customer-portal/qa
+    STAGING_CONFIG: /aws/reference/secretsmanager/customer-portal/staging
+  exported-variables:
+    # Exporting variables that will be used by the "publish-version" lambda function
+    - PULL_REQUEST
+
+phases:
+  pre_build:
+    commands:
+      # Temporary fix for CodeBuild issue where empty refs folder is not uploaded in source artifact
+      - mkdir -p .git/refs
+      - echo "$QA_CONFIG" | jq 'to_entries[] | .key + "=" + .value' -r > .env.qa
+      - echo "$STAGING_CONFIG" | jq 'to_entries[] | .key + "=" + .value' -r > .env.staging
+      - rsync -ah .codebuild_cache/ node_modules/
+
+  build:
+    commands:
+      - make install
+      # - make prune
+      # - make test
+      # TEMPORARY SOLUTION FOR IAM ASSUME ROLE
+      # Assume CodeBuild QA Role
+      - export AWS_DEFAULT_REGION="ap-southeast-2"
+      - temp_role=$(aws sts assume-role --role-arn arn:aws:iam::955827651468:role/codebuild --role-session-name "build-tmp-session" --profile yellownz-qa)
+      - export AWS_ACCESS_KEY_ID=$(echo $temp_role | jq -r .Credentials.AccessKeyId)
+      - export AWS_SECRET_ACCESS_KEY=$(echo $temp_role | jq -r .Credentials.SecretAccessKey)
+      - export AWS_SESSION_TOKEN=$(echo $temp_role | jq -r .Credentials.SessionToken)
+      - make build/qa
+      # Assume CodeBuild Staging Role
+      - temp_role=$(aws sts assume-role --role-arn arn:aws:iam::985706409166:role/codebuild --role-session-name "build-tmp-session" --profile yellownz-staging)
+      - export AWS_ACCESS_KEY_ID=$(echo $temp_role | jq -r .Credentials.AccessKeyId)
+      - export AWS_SECRET_ACCESS_KEY=$(echo $temp_role | jq -r .Credentials.SecretAccessKey)
+      - export AWS_SESSION_TOKEN=$(echo $temp_role | jq -r .Credentials.SessionToken)
+      - make build/staging
+      - make pr_version
+
+  post_build:
+    commands:
+      - source ./EXPORTED_VARS.txt
+      - tar -cf node.tar node_modules/
+      - tar -cf cypress.tar -C /root/.cache Cypress
+      - rsync -ah node_modules/ .codebuild_cache/ --delete
+
+artifacts:
+  files:
+    - '**/*'
+
+cache:
+  paths:
+    - /root/.cache/**/*
+    - /root/.npm/**/*
+    - .codebuild_cache/**/*
